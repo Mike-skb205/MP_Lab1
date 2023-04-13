@@ -69,15 +69,16 @@ print(f'time_spent_binary_sort = {time_spent_binary_sort}')
 print(f'time_spent_binary = {time_spent_binary}')
 print(f'time_spent_key = {time_spent_key}')
 
-x1 = np.array(time_spent_simple)
-x2 = np.array(time_spent_binary)
-x3 = np.array(time_spent_binary_sort)
-x4 = np.array(time_spent_key)
+#Отрисовка
+x = [np.array(time_spent_simple), np.array(time_spent_binary),
+     np.array(time_spent_binary_sort), np.array(time_spent_key)]
 y = np.array(nums)
-plt.plot(y, x1, '-', label='Simple search')
-plt.plot(y, x2, '--', label='Binary search')
-plt.plot(y, x3, '-.', label='Binary in sorted search')
-plt.plot(y, x4, ':', label='Map search')
+plt.plot(y, x[0], '-')
+plt.plot(y, x[1], '--')
+plt.plot(y, x[2], '-.')
+plt.plot(y, x[3], ':')
+plt.legend(['Simple search', 'Binary search',
+           'Binary search(sorted)', 'Map search'])
 plt.xlabel("X axis")
 plt.ylabel("Y axis")
 plt.show()
