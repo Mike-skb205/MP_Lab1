@@ -1,3 +1,6 @@
+## Main
+#  Here are all functions called
+
 import random
 import pandas as pd
 import timeit
@@ -17,11 +20,11 @@ nums = [101, 200, 440, 1000, 5000, 50000, 105000]
 """Чтение из файла и запись в словарь, для дальнейшей сортировки"""
 citizens = {}
 for i in nums:
-    curr = pd.read_excel('./Data_1.xlsx', sheet_name=f'{i}').to_dict('records')
+    curr = pd.read_excel('./citizens_sorted_pyramid.xlsx', sheet_name=f'{i}').to_dict('records')
     curr_citizens = []
     for citizen in curr:
-        curr_citizens.append(Citizen(citizen['Фио'], citizen['Улица'],
-                                     citizen['Дом'], citizen['Номер кв'], citizen['Год рождения'])
+        curr_citizens.append(Citizen(citizen['ФИО'], citizen['Улица'],
+                                     citizen['Дом'], citizen['Квартира'], citizen['Год рождения'])
         )
 
     citizens[i] = curr_citizens

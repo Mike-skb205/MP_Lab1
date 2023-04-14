@@ -1,3 +1,11 @@
+## @Algorithms
+#  Here are declared all the search engines, such as Binary and Sumple
+
+## def simple_search(arr, key)
+## def binary_search(arr, start, end, key)
+## heapify(nums, heap_size, root_index) - used by heap_sort()
+## def heap_sort(nums)
+
 """Простой поиск"""
 def simple_search(arr, key):
     for i in range(len(arr)):
@@ -7,10 +15,22 @@ def simple_search(arr, key):
     return -1
 
 """Бинарный поиск"""
-def binary_search(arr, start, end, key):
+def binary_search(data, start, end, elem):
     if start > end:
         return -1
+    while start <= end:
+        middle = start + ( end - start) // 2
+        if data[middle] == elem:
+            return middle
+        elif data[middle] > elem:
+            end = middle - 1
+        else:
+            start = middle + 1
+        return -1
 
+def binary_search_testCode(arr, start, end, key):
+    if start > end:
+        return -1
     middle = start + (end - start) // 2
 
     if arr[middle] == key:
